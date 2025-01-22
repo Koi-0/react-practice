@@ -3,18 +3,22 @@ import { useState } from "react";
 
 const App = () => {
     // JavaScript 영역
+    const [lists, setLists] = useState([
+        { id: crypto.randomUUID(), title: "국가명" },
+        { id: crypto.randomUUID(), title: "금메달" },
+        { id: crypto.randomUUID(), title: "은메달" },
+        { id: crypto.randomUUID(), title: "동메달" },
+        { id: crypto.randomUUID(), title: "액션" },
+    ]);
     const [value, setValue] = useState("");
 
-    const [lists, setList] = useState([
-        { id: crypto.randomUUID(), text: "국가명" },
-        { id: crypto.randomUUID(), text: "금메달" },
-        { id: crypto.randomUUID(), text: "은메달" },
-        { id: crypto.randomUUID(), text: "동메달" },
-    ]);
+    const onSubmitHandler = (e) => {
+        e.preventDefault(); // 기본 제출 동작 방지
+    };
 
-    // crypto.randomUUID() : 고유한 식별자 생성
-
-    const onClickHandler = () => {};
+    const onClickHandler = (e) => {
+        e.preventDefault(); // 기본 동작 방지
+    };
 
     return (
         <div className="app-style">
@@ -24,30 +28,30 @@ const App = () => {
                 <div className="list-style">
                     <section>
                         <p className="p-style">국가명</p>
-                        <form>
+                        <form onSubmit={onSubmitHandler}>
                             <input type="text" min="0" placeholder="국가 이름" className="input-style" />
                         </form>
                     </section>
                     <section>
                         <p className="p-style">금메달</p>
-                        <form>
+                        <form onSubmit={onSubmitHandler}>
                             <input type="number" min="0" placeholder="0" className="input-style" />
                         </form>
                     </section>
                     <section>
                         <p className="p-style">은메달</p>
-                        <form>
+                        <form onSubmit={onSubmitHandler}>
                             <input type="number" min="0" placeholder="0" className="input-style" />
                         </form>
                     </section>
                     <section>
                         <p className="p-style">동메달</p>
-                        <form>
+                        <form onSubmit={onSubmitHandler}>
                             <input type="number" min="0" placeholder="0" className="input-style" />
                         </form>
                     </section>
                     <section>
-                        <button onClick={onClickHandler} className="Addcountry button-style">
+                        <button onClick={onClickHandler} className="button-style">
                             국가 추가
                         </button>
                         <button className="button-style">업데이트</button>

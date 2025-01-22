@@ -7,20 +7,22 @@ body {
     justify-content: center;
     min-height: 100vh;
     background-color: #f2f9ff;
+    font-family: Arial;
 }
 
 :root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
 }
 
 h2 {
+    color: navy;
     font-size: 2.8em;
     line-height: 0.5;
 }
 
-ul, li {
+ul,
+li {
     list-style: none;
 }
 
