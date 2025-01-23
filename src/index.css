@@ -7,9 +7,10 @@
 body {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
-    background-color: #f2f9ff;
+    margin: 50px 0;
+    background-color: #eef4ff;
     font-family: Arial;
+    height: 100vh;
 }
 
 :root {
@@ -18,7 +19,7 @@ body {
 }
 
 h2 {
-    color: navy;
+    color: #1c2574;
     font-size: 2.8em;
     line-height: 0.5;
 }
@@ -29,7 +30,7 @@ li {
 }
 
 button {
-    background-color: #ffe700;
+    background-color: #ffeb00;
     border-radius: 5px;
     border: 1px solid transparent;
     padding: 0.5em 1em;
@@ -39,12 +40,7 @@ button {
 }
 
 button:hover {
-    border-color: navy;
-}
-
-button:focus,
-button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
+    border-color: #1c2574;
 }
 
 .app-style {
@@ -88,9 +84,39 @@ button:focus-visible {
     margin-top: 50px;
 }
 
-.section-ul-style {
-    background-color: lightcoral;
+.section-style {
+    background-color: #dde9ff;
+    border-radius: 20px 20px 0 0;
+}
+
+.ul-title-style {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly; /* 항목을 균일 간격으로 배치 */
+    font-weight: bold;
+    background-color: #1c2574;
+    color: white;
+    border-radius: 20px 20px 0 0;
+}
+
+.ul-list-style {
+    display: flex;
+    justify-content: space-evenly; /* 항목을 균일 간격으로 배치 */
     border-radius: 20px;
+}
+
+.ul-title-style li {
+    flex: 1;
+    padding: 10px 0;
+}
+
+.ul-list-style li {
+    flex: 1;
+}
+
+.ul-list-style li li {
+    padding: 10px 0;
+}
+
+.ul-list-style > li > li:nth-child(even) {
+    background-color: #b8cdf4;
 }
