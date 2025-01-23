@@ -1,45 +1,78 @@
 import { useState } from "react";
 
 const App = () => {
-    // JavaScript 영역
+    const countrys = [""];
 
-    const [value, setValue] = useState("");
+    const [country, setCountry] = useState(countrys);
 
-    const [lists, setList] = useState([
-        { id: crypto.randomUUID(), text: "국가명" },
-        { id: crypto.randomUUID(), text: "금메달" },
-        { id: crypto.randomUUID(), text: "은메달" },
-        { id: crypto.randomUUID(), text: "동메달" },
-    ]);
+    // 새로운 국가명 입력에 대한 상태 관리
+    const [newCountry, SetNewCountry] = useState("");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (!newCountry.trim()) {
+            return;
+        }
+
+        setCountry([{ id: crypto.randomUUID(), text: newCountry }, ...country]);
+
+        SetNewCountry("");
+        document.querySelector(".span-style").style.display = "none";
+    };
+
+    // 국가명 input 태그의 변경을 감지하여 상태에 입력값 저장
+    const handleCountryInputChange = (e) => {
+        SetNewCountry(e.target.value);
+    };
 
     return (
         <div className="app-style">
-            {/* HTML / JSX 영역 */}
-            <h2>2024 파리 올림픽</h2>
-            <main className="list-style">
-                <ul className="ul-style">
+            <main>
+                <h2>2024 파리 올림픽</h2>
+                <ul className="main-ul-style">
                     <li>국가명</li>
                     <li>금메달</li>
                     <li>은메달</li>
                     <li>동메달</li>
                 </ul>
-                <form className="form-style">
-                    <input type="text" placeholder="국가명" className="input-style" />
-                    <input type="number" placeholder="0" min="0" className="input-style" />
-                    <input type="number" placeholder="0" min="0" className="input-style" />
-                    <input type="number" placeholder="0" min="0" className="input-style" />
-                    <button type="submit">국가 추가</button>
-                    <button type="submit">업데이트</button>
+                <form onSubmit={handleSubmit}>
+                    <div className="all-input-style">
+                        <input type="text" placeholder="국가명" className="input-style" value={newCountry} onChange={handleCountryInputChange} />
+                        <input type="number" placeholder="0" min="0" className="input-style" />
+                        <input type="number" placeholder="0" min="0" className="input-style" />
+                        <input type="number" placeholder="0" min="0" className="input-style" />
+                    </div>
+                    <div className="button-style">
+                        <button type="submit">국가 추가</button>
+                        <button>업데이트</button>
+                    </div>
                 </form>
-                {/* <section>
-                    <ul>
-                        {lists.map((list) => (
-                            <li key={list.id}>{list.text}</li>
-                        ))}
-                    </ul>
-                </section> */}
             </main>
-
+            <section>
+                <ul className="section-ul-style">
+                    <li>
+                        {country.map((country) => (
+                            <li key={country.id}>{country.text}</li>
+                        ))}
+                    </li>
+                    <li>
+                        {country.map((country) => (
+                            <li key={country.id}>{country.text}</li>
+                        ))}
+                    </li>
+                    <li>
+                        {country.map((country) => (
+                            <li key={country.id}>{country.text}</li>
+                        ))}
+                    </li>
+                    <li>
+                        {country.map((country) => (
+                            <li key={country.id}>{country.text}</li>
+                        ))}
+                    </li>
+                </ul>
+            </section>
             <span className="span-style">아직 추가된 국가가 없습니다. 메달을 추적하세요.</span>
         </div>
     );
