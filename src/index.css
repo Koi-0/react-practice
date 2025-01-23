@@ -93,5 +93,4 @@ button:focus-visible {
     display: flex;
     justify-content: space-around;
     border-radius: 20px;
-    /* padding: 1em; */
 }
