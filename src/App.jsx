@@ -1,69 +1,42 @@
-// 컴포넌트 밖, 필요한  파일 가져오는 영역
 import { useState } from "react";
 
 const App = () => {
     // JavaScript 영역
-    const [lists, setLists] = useState([
-        { id: crypto.randomUUID(), title: "국가명" },
-        { id: crypto.randomUUID(), title: "금메달" },
-        { id: crypto.randomUUID(), title: "은메달" },
-        { id: crypto.randomUUID(), title: "동메달" },
-        { id: crypto.randomUUID(), title: "액션" },
-    ]);
+
     const [value, setValue] = useState("");
 
-    const onSubmitHandler = (e) => {
-        e.preventDefault(); // 기본 제출 동작 방지
-    };
+    const [lists, setList] = useState([
+        { id: crypto.randomUUID(), text: "국가명" },
+        { id: crypto.randomUUID(), text: "금메달" },
+        { id: crypto.randomUUID(), text: "은메달" },
+        { id: crypto.randomUUID(), text: "동메달" },
+    ]);
 
-    const onClickHandler = (e) => {
-        e.preventDefault(); // 기본 동작 방지
-    };
+    // crypto.randomUUID() : 고유한 식별자 생성
 
     return (
         <div className="app-style">
             {/* HTML / JSX 영역 */}
             <h2>2024 파리 올림픽</h2>
-            <main>
-                <div className="list-style">
-                    <section>
-                        <p className="p-style">국가명</p>
-                        <form onSubmit={onSubmitHandler}>
-                            <input type="text" min="0" placeholder="국가 이름" className="input-style" />
-                        </form>
-                    </section>
-                    <section>
-                        <p className="p-style">금메달</p>
-                        <form onSubmit={onSubmitHandler}>
-                            <input type="number" min="0" placeholder="0" className="input-style" />
-                        </form>
-                    </section>
-                    <section>
-                        <p className="p-style">은메달</p>
-                        <form onSubmit={onSubmitHandler}>
-                            <input type="number" min="0" placeholder="0" className="input-style" />
-                        </form>
-                    </section>
-                    <section>
-                        <p className="p-style">동메달</p>
-                        <form onSubmit={onSubmitHandler}>
-                            <input type="number" min="0" placeholder="0" className="input-style" />
-                        </form>
-                    </section>
-                    <section>
-                        <button onClick={onClickHandler} className="button-style">
-                            국가 추가
-                        </button>
-                        <button className="button-style">업데이트</button>
-                    </section>
-                </div>
-                <div>
-                    <ul>
-                        {lists.map((list) => (
-                            <li key={list.id}>{list.text}</li>
-                        ))}
+
+            <main className="list-style">
+                <section>
+                    <ul className="ul-style">
+                        <li>국가명</li>
+                        <li>금메달</li>
+                        <li>은메달</li>
+                        <li>동메달</li>
                     </ul>
-                </div>
+                    <form className="form-style">
+                        <input type="text" placeholder="국가명" className="input-style" />
+                        <input type="number" placeholder="0" min="0" className="input-style" />
+                        <input type="number" placeholder="0" min="0" className="input-style" />
+                        <input type="number" placeholder="0" min="0" className="input-style" />
+                        <button type="submit">국가 추가</button>
+                        <button type="submit">업데이트</button>
+                    </form>
+                </section>
+                <div></div>
             </main>
             <span className="span-style">아직 추가된 국가가 없습니다. 메달을 추적하세요.</span>
         </div>
