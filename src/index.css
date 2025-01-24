@@ -91,48 +91,37 @@ button:hover {
 
 .ul-title-style {
     display: flex;
-    justify-content: space-evenly; /* 항목을 균일 간격으로 배치 */
     font-weight: bold;
     background-color: #1c2574;
     color: white;
     border-radius: 20px 20px 0 0;
 }
 
-.ul-list-style {
-    display: flex;
-    flex-direction: column;
-    border-radius: 20px;
-}
-
-.ul-title-style li {
-    flex: 1;
+.ul-title-style > li {
+    width: 20%;
     padding: 10px 0;
 }
 
 .list-item-style {
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-.list-item-style span {
-    padding: 10px 0;
-}
-
-.ul-list-style li p {
-    padding: 10px 0;
+    padding: 5px 0;
 }
 
 .list-item-style:nth-child(even) {
     background-color: #b8cdf4;
 }
 
+.list-item-style > span {
+    width: 20%;
+    padding: 5px 0;
+}
+
 .delete-button {
     background-color: rgb(255, 69, 69);
     border-radius: 3px;
     border-color: transparent;
-    padding: 0.2rem 0.5rem;
-    font-size: 0.6rem;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.8rem;
     color: white;
     transition: color 0.25s;
     cursor: pointer;
