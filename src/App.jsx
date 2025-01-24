@@ -20,7 +20,7 @@ const App = () => {
         const existingEntry = medalList.find((entry) => entry.country === newCountry);
 
         if (existingEntry) {
-            alert(`"${newCountry}"는 이미 존재합니다. 새로운 정보를 업데이트 해주세요.`);
+            alert(`"${newCountry}"는 이미 존재하는 국가입니다. 새로운 정보를 업데이트 해주세요.`);
         } else {
             const newEntry = {
                 id: crypto.randomUUID(),
@@ -60,7 +60,7 @@ const App = () => {
             )
         );
 
-        alert(`"${newCountry}"의 정보가 업데이트되었습니다.`);
+        alert(`[ 국가명 : "${newCountry}" ] 정보가 업데이트되었습니다.`);
 
         // 입력 필드 초기화
         resetFields();
@@ -107,15 +107,6 @@ const App = () => {
                         <button onClick={handleUpdate}>업데이트</button>
                     </div>
                 </form>
-                <div>
-                    <label>
-                        정렬 기준:
-                        <select value={sortBy} onChange={handleSortChange}>
-                            <option value="gold">금메달 수</option>
-                            <option value="total">총 메달 수</option>
-                        </select>
-                    </label>
-                </div>
             </main>
 
             <section>
